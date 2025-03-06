@@ -1,16 +1,10 @@
 const slider = document.getElementById('pain-level');
-const valueDisplay = document.querySelector('.value');
 const resultDisplay = document.getElementById('result');
-
-// Cập nhật giá trị khi kéo thanh trượt
-slider.addEventListener('input', () => {
-    valueDisplay.textContent = slider.value;
-});
 
 // Hàm gửi dữ liệu
 function submitData() {
     const name = document.getElementById('name').value;
-    const painLevel = slider.value;
+    const painLevel = parseFloat(slider.value).toFixed(1); // Làm tròn đến 1 chữ số thập phân
     const time = new Date().toLocaleString();
 
     if (!name) {
@@ -19,15 +13,6 @@ function submitData() {
     }
 
     // Hiển thị kết quả
-    resultDisplay.textContent = `Cảm ơn bạn, ${name}! Mức độ đau của bạn là ${painLevel}.`;
+    resultDisplay.textContent = `Kết quả: ${painLevel}`;
     resultDisplay.style.color = 'green';
-
-    // (Tùy chọn) Gửi dữ liệu lên server nếu có backend
-    // fetch('/api/save-pain-level', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ name, time, painLevel }),
-    // });
 }

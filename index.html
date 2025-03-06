@@ -8,16 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <h1>Đánh giá mức độ đau của bạn</h1>
+        <h1>Đánh giá mức độ đau</h1>
 
         <div class="instructions">
-            <h2>Cách sử dụng</h2>
+            <h2>Câu hỏi</h2>
             <p>
-                Hãy kéo thanh trượt để chọn mức độ đau của bạn:<br>
-                - <strong>0</strong>: Không đau.<br>
-                - <strong>50</strong>: Đau vừa.<br>
-                - <strong>100</strong>: Đau dữ dội.<br>
-                Nhấn "Gửi" để hoàn thành.
+                Trên thang điểm từ 0 đến 100, với 0 là không đau và 100 là mức độ đau nhất mà bạn có thể nghĩ đến, bạn cảm thấy cơn đau sau khi nhổ răng khôn trong 24 giờ qua ở mức độ nào? Xin vui lòng kéo thanh trượt bên dưới đến mức độ phù hợp.
             </p>
         </div>
 
@@ -26,13 +22,11 @@
         <br><br>
 
         <label for="pain-level">Mức độ đau (0 - 100):</label>
-        <input type="range" id="pain-level" class="slider" min="0" max="100" value="0">
+        <input type="range" id="pain-level" class="slider" min="0" max="100" value="0" step="0.1">
         <div class="slider-labels">
             <span>😊 0 - Không đau</span>
-            <span>😐 50 - Đau vừa</span>
-            <span>😫 100 - Đau dữ dội</span>
+            <span>😫 100 - Đau nhất</span>
         </div>
-        <div class="value">0</div>
 
         <button onclick="submitData()">Gửi</button>
         <p id="result"></p>
