@@ -19,7 +19,8 @@ function submitData() {
     }
 
     // Hiển thị kết quả
-    resultDisplay.textContent = `Tên: ${name}, Thời gian: ${time}, Mức độ đau: ${painLevel}`;
+    resultDisplay.textContent = `Cảm ơn bạn, ${name}! Mức độ đau của bạn là ${painLevel}.`;
+    resultDisplay.style.color = 'green';
 
     // (Tùy chọn) Gửi dữ liệu lên server nếu có backend
     // fetch('/api/save-pain-level', {

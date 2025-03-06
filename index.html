@@ -3,19 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thước đo VAS điện tử</title>
+    <title>Đánh giá mức độ đau</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Thước đo mức độ đau (VAS)</h1>
+        <h1>Đánh giá mức độ đau của bạn</h1>
+
+        <div class="instructions">
+            <h2>Cách sử dụng</h2>
+            <p>
+                Hãy kéo thanh trượt để chọn mức độ đau của bạn:<br>
+                - <strong>0</strong>: Không đau.<br>
+                - <strong>50</strong>: Đau vừa.<br>
+                - <strong>100</strong>: Đau dữ dội.<br>
+                Nhấn "Gửi" để hoàn thành.
+            </p>
+        </div>
+
         <label for="name">Tên của bạn:</label>
         <input type="text" id="name" placeholder="Nhập tên của bạn">
         <br><br>
+
         <label for="pain-level">Mức độ đau (0 - 100):</label>
         <input type="range" id="pain-level" class="slider" min="0" max="100" value="0">
+        <div class="slider-labels">
+            <span>😊 0 - Không đau</span>
+            <span>😐 50 - Đau vừa</span>
+            <span>😫 100 - Đau dữ dội</span>
+        </div>
         <div class="value">0</div>
-        <button onclick="submitData()">Gửi kết quả</button>
+
+        <button onclick="submitData()">Gửi</button>
         <p id="result"></p>
     </div>
 
