@@ -146,4 +146,19 @@ button:hover {
 #result {
     margin-top: 20px;
     font-size: 18px;
-   
+    color: green;
+    line-height: 1.6;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+footer strong {
+    color: #007bff;
+}
