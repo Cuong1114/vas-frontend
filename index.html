@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thước đo VAS điện tử</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thước đo mức độ đau (VAS)</h1>
+        <label for="name">Tên của bạn:</label>
+        <input type="text" id="name" placeholder="Nhập tên của bạn">
+        <br><br>
+        <label for="pain-level">Mức độ đau (0 - 100):</label>
+        <input type="range" id="pain-level" class="slider" min="0" max="100" value="0">
+        <div class="value">0</div>
+        <button onclick="submitData()">Gửi kết quả</button>
+        <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
