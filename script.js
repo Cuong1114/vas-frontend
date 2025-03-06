@@ -12,7 +12,11 @@ function submitData() {
         return;
     }
 
-    // Hiển thị kết quả
-    resultDisplay.textContent = `Kết quả: ${painLevel}`;
+    // Hiển thị kết quả thành 3 dòng
+    resultDisplay.innerHTML = `
+        Cảm ơn bạn <strong>${name}</strong> đã tham gia đánh giá!<br>
+        Mức độ đau của bạn là <strong>${painLevel}</strong>.<br>
+        Hãy chăm sóc bản thân thật tốt và luôn vui khỏe nhé! 🌟
+    `;
     resultDisplay.style.color = 'green';
 }
