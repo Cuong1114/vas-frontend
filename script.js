@@ -33,17 +33,11 @@ async function submitData() {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            mode: 'no-cors' // Thêm dòng này
         });
 
-        const responseText = await response.text();
-        console.log('Phản hồi từ server:', responseText);
-
-        if (response.ok) {
-            console.log('Dữ liệu đã được lưu thành công!');
-        } else {
-            console.error('Lỗi khi lưu dữ liệu:', response.statusText);
-        }
+        console.log('Dữ liệu đã được gửi đi!');
     } catch (error) {
         console.error('Lỗi:', error);
     }
