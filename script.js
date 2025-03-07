@@ -18,8 +18,10 @@ async function submitData() {
     `;
     resultDisplay.style.color = 'green';
 
-    // Gửi dữ liệu đến Google Sheets
-    const url = 'https://script.google.com/macros/s/AKfycby2Ku0jpN_C3NTeRAqKfVvl_mI2xKVIBuIlln0E0cy9JKXFX5EU6Y9hH8rKP89nr_127g/exec';
+    // Gửi dữ liệu đến Google Sheets thông qua proxy
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycby2Ku0jpN_C3NTeRAqKfVvl_mI2xKVIBuIlln0E0cy9JKXFX5EU6Y9hH8rKP89nr_127g/exec';
+    const url = proxyUrl + scriptUrl;
     const data = {
         name: name,
         painLevel: painLevel
@@ -33,11 +35,17 @@ async function submitData() {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
-            },
-            mode: 'no-cors' // Thêm dòng này
+            }
         });
 
-        console.log('Dữ liệu đã được gửi đi!');
+        const responseText = await response.text();
+        console.log('Phản hồi từ server:', responseText);
+
+        if (response.ok) {
+            console.log('Dữ liệu đã được lưu thành công!');
+        } else {
+            console.error('Lỗi khi lưu dữ liệu:', response.statusText);
+        }
     } catch (error) {
         console.error('Lỗi:', error);
     }
