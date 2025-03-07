@@ -1,7 +1,9 @@
+const slider = document.getElementById('pain-level');
+const resultDisplay = document.getElementById('result');
+
 async function submitData() {
     const name = document.getElementById('name').value;
     const painLevel = parseFloat(slider.value).toFixed(1); // Làm tròn đến 1 chữ số thập phân
-    const time = new Date().toLocaleString();
 
     if (!name) {
         alert('Vui lòng nhập tên của bạn!');
@@ -17,11 +19,13 @@ async function submitData() {
     resultDisplay.style.color = 'green';
 
     // Gửi dữ liệu đến Google Sheets
-    const url = 'https://script.google.com/macros/s/AKfycby2Ku0jpN_C3NTeRAqKfVvl_mI2xKVIBuIlln0E0cy9JKXFX5EU6Y9hH8rKP89nr_127g/exec'; // Thay bằng URL của bạn
+    const url = 'https://script.google.com/macros/s/.../exec'; // Thay bằng URL của bạn
     const data = {
         name: name,
         painLevel: painLevel
     };
+
+    console.log('Dữ liệu gửi đi:', data);
 
     try {
         const response = await fetch(url, {
@@ -31,6 +35,9 @@ async function submitData() {
                 'Content-Type': 'application/json'
             }
         });
+
+        const responseText = await response.text();
+        console.log('Phản hồi từ server:', responseText);
 
         if (response.ok) {
             console.log('Dữ liệu đã được lưu thành công!');
