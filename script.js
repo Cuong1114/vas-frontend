@@ -10,13 +10,20 @@ async function submitData() {
         return;
     }
 
-    // Hiển thị kết quả
-    resultDisplay.innerHTML = `
+    // Hiển thị pop-up
+    const popup = document.getElementById('popup');
+    const popupMessage = document.getElementById('popup-message');
+    popupMessage.innerHTML = `
         Cảm ơn bạn <strong>${name}</strong> đã tham gia đánh giá!<br>
         Mức độ đau của bạn là <strong>${painLevel}</strong>.<br>
         Hãy chăm sóc bản thân thật tốt và luôn vui khỏe nhé! 🌟
     `;
-    resultDisplay.style.color = 'green';
+    popup.style.display = 'flex';
+
+    // Đóng pop-up khi nhấn nút đóng
+    document.getElementById('popup-close').onclick = () => {
+        popup.style.display = 'none';
+    };
 
     // Gửi dữ liệu đến Google Sheets
     const url = 'https://script.google.com/macros/s/AKfycby2Ku0jpN_C3NTeRAqKfVvl_mI2xKVIBuIlln0E0cy9JKXFX5EU6Y9hH8rKP89nr_127g/exec';
