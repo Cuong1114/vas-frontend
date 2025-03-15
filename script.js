@@ -1,5 +1,4 @@
 const slider = document.getElementById('pain-level');
-const resultDisplay = document.getElementById('result');
 
 async function submitData() {
     const name = document.getElementById('name').value;
@@ -20,9 +19,15 @@ async function submitData() {
     `;
     popup.style.display = 'flex';
 
-    // Đóng pop-up khi nhấn nút đóng
+    // Đóng pop-up khi nhấn nút đóng hoặc nút OK và làm mới trang web
     document.getElementById('popup-close').onclick = () => {
         popup.style.display = 'none';
+        location.reload(); // Làm mới trang web
+    };
+
+    document.getElementById('popup-ok').onclick = () => {
+        popup.style.display = 'none';
+        location.reload(); // Làm mới trang web
     };
 
     // Gửi dữ liệu đến Google Sheets
